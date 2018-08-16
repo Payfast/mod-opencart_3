@@ -223,7 +223,7 @@ class ControllerExtensionPaymentPayFast extends Controller
             $passphrase = $this->config->get( 'payment_payfast_passphrase' );
             $pfPassphrase = empty( $passphrase ) ? null : $passphrase;
 
-            $server = empty($this->config->get( 'payment_payfast_sandbox' )) ? 'live' : 'test';
+            $server = $this->config->get( 'payment_payfast_sandbox' ) ? 'live' : 'test';
 
             // If signature different, log for debugging
             if ( !pfValidSignature( $pfData, $pfParamString, $pfPassphrase, $server ) )

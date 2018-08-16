@@ -7,9 +7,9 @@
 
 // User agent constituents (for cURL)
 define( 'PF_SOFTWARE_NAME', 'OpenCart' );
-define( 'PF_SOFTWARE_VER', "3.0.2.0" );
+define( 'PF_SOFTWARE_VER', '3.0.2.0' );
 define( 'PF_MODULE_NAME', 'PayFast-OpenCart' );
-define( 'PF_MODULE_VER', '2.0.0' );
+define( 'PF_MODULE_VER', '2.0.1' );
 
 // Features
 // - PHP
