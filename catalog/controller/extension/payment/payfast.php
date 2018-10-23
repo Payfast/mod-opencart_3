@@ -5,6 +5,8 @@
  * Except as expressly indicated in this licence, you may not use, copy, modify or distribute this plugin / code or part thereof in any way.
  */
 
+include( 'payfast_common.inc' );
+
 class ControllerExtensionPaymentPayFast extends Controller
 {
     var $pfHost = '';
@@ -75,12 +77,15 @@ class ControllerExtensionPaymentPayFast extends Controller
             {
                 $merchant_id = $this->config->get( 'payment_payfast_merchant_id' );
                 $merchant_key = $this->config->get( 'payment_payfast_merchant_key' );
-
+                $passphrase = $this->config->get( 'payment_payfast_passphrase' );
             }
             else
             {
-                $merchant_id = '10000100';
-                $merchant_key = '46f0cd694581a';
+                //Default sandbox account (recurring)
+                $merchant_id = '10004002';
+                $merchant_key = 'q1cd2rdny4a53';
+                $passphrase = 'payfast';
+
             }
 
             $return_url = $this->url->link( 'checkout/success' );
@@ -93,7 +98,7 @@ class ControllerExtensionPaymentPayFast extends Controller
             $amount = $this->currency->format( $order_info[ 'total' ], $order_info[ 'currency_code' ], '', false );
             $item_name = $this->config->get( 'config_name' ) . ' - #' . $this->session->data[ 'order_id' ];
             $item_description = $this->language->get( 'text_sale_description' );
-            $custom_str1 = $this->session->data[ 'order_id' ];
+            $custom_str1 = constant( 'PF_MODULE_NAME' ).'_'.constant( 'PF_SOFTWARE_VER' ).'_'.constant( 'PF_MODULE_VER' );
 
             $payArray = array(
                 'merchant_id' => $merchant_id, 'merchant_key' => $merchant_key, 'return_url' => $return_url,
@@ -123,10 +128,9 @@ class ControllerExtensionPaymentPayFast extends Controller
                 $data[ $k ] = $v;
             }
 
-            $passphrase = $this->config->get( 'payment_payfast_passphrase' );
-            if ( !empty( $passphrase ) && !$this->config->get( 'payment_payfast_sandbox' ) )
+            if ( !empty( $passphrase ) || $this->config->get( 'payment_payfast_sandbox' ) )
             {
-                $secureString = $secureString . 'passphrase=' . urlencode( $this->config->get( 'payment_payfast_passphrase' ) );
+                $secureString = $secureString . 'passphrase=' . urlencode( $passphrase );
             }
             else
             {
@@ -173,7 +177,6 @@ class ControllerExtensionPaymentPayFast extends Controller
             $debug = false;
         }
         define( 'PF_DEBUG', $debug );
-        include( 'payfast_common.inc' );
         $pfError = false;
         $pfErrMsg = '';
         $pfDone = false;
