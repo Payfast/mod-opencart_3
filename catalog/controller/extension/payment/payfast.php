@@ -182,9 +182,10 @@ class ControllerExtensionPaymentPayFast extends Controller
         $pfDone = false;
         $pfData = array();
         $pfParamString = '';
-        if ( isset( $this->request->post[ 'custom_str1' ] ) )
+
+        if ( isset( $this->request->post[ 'm_payment_id' ] ) )
         {
-            $order_id = $this->request->post[ 'custom_str1' ];
+            $order_id = $this->request->post[ 'm_payment_id' ];
         }
         else
         {
@@ -223,8 +224,15 @@ class ControllerExtensionPaymentPayFast extends Controller
         if ( !$pfError && !$pfDone )
         {
             pflog( 'Verify security signature' );
-            $passphrase = $this->config->get( 'payment_payfast_passphrase' );
-            $pfPassphrase = empty( $passphrase ) ? null : $passphrase;
+            $passphrase = !$this->config->get( 'payment_payfast_sandbox' ) ? $this->config->get( 'payment_payfast_passphrase') : 'payfast';
+            if ( !empty( $passphrase ) || $this->config->get( 'payment_payfast_sandbox' ) )
+            {
+                $pfPassphrase = $passphrase;
+            }
+            else
+            {
+                $pfPassphrase = null;
+            }
 
             $server = $this->config->get( 'payment_payfast_sandbox' ) ? 'test' : 'live';
 
