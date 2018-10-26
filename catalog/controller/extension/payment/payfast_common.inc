@@ -138,7 +138,7 @@ function pfValidSignature( $pfData = null, &$pfParamString = null, $pfPassphrase
     
     $pfParamString = substr( $pfParamString, 0, -1 );
 
-    if( !is_null( $pfPassphrase ) && $server == 'live' )
+    if( !is_null( $pfPassphrase ) )
     {
         $pfParamStringWithPassphrase = $pfParamString."&passphrase=". urlencode( $pfPassphrase );
         $signature = md5( $pfParamStringWithPassphrase );
