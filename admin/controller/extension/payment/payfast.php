@@ -98,12 +98,6 @@ if (isset($this->error['warning'])) {
 			$data['payment_payfast_debug'] = $this->config->get('payment_payfast_debug');
 		}
 
-		if (isset($this->request->post['payment_payfast_total'])) {
-			$data['payment_payfast_total'] = $this->request->post['payment_payfast_total'];
-		} else {
-			$data['payment_payfast_total'] = $this->config->get('payment_payfast_total');
-		}
-
         $this->load->model('localisation/order_status');
         $data['order_statuses'] = $this->model_localisation_order_status->getOrderStatuses();
 

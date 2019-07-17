@@ -18,12 +18,9 @@ $_['text_edit']                      = 'Edit PayFast';
 // Entry
 $_['entry_payfast_merchant_id']      = 'PayFast Merchant ID:';
 $_['entry_payfast_merchant_key']     = 'PayFast Merchant Key:';
-
 $_['entry_payfast_sandbox']          = 'Sandbox Mode:';
 $_['entry_payfast_debug']            = 'Debug:';
-
 $_['entry_payfast_passphrase']       = 'PayFast Secure Passphrase:';
-$_['entry_total']                    = 'Total:';
 
 $_['entry_geo_zone']                 = 'Geo Zone:';
 $_['entry_status']                   = 'Status:';
@@ -32,7 +29,7 @@ $_['entry_sort_order']               = 'Sort Order:';
 // Order Status Tab
 $_['entry_completed_status']         = 'Payment Completed Status:';
 $_['entry_failed_status']            = 'Payment Failed Status:';
-$_['entry_canceled_status']         = 'Payment Cancelled Status:';
+$_['entry_canceled_status']          = 'Payment Cancelled Status:';
 
 // Help
 $_['help_payfast_passphrase']        = 'Only insert a value for passphrase if you have set a passphrase in your Payfast account!';
