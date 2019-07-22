@@ -9,7 +9,7 @@
 define( 'PF_SOFTWARE_NAME', 'OpenCart' );
 define( 'PF_SOFTWARE_VER', '3.0.2.0' );
 define( 'PF_MODULE_NAME', 'PF_OpenCart' );
-define( 'PF_MODULE_VER', '2.2.0' );
+define( 'PF_MODULE_VER', '2.3.0' );
 
 // Features
 // - PHP
