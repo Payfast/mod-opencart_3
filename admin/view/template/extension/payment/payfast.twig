@@ -73,19 +73,19 @@
                                     <label class="radio-inline">
                                         {% if payment_payfast_debug %}
                                             <input type="radio" name="payment_payfast_debug" value="1" checked="checked" />
-                                            {{ text_yes }}
+                                            {{ button_enable }}
                                         {% else %}
                                             <input type="radio" name="payment_payfast_debug" value="1" />
-                                            {{ text_yes }}
+                                            {{ button_enable }}
                                         {% endif %}
                                     </label>
                                     <label class="radio-inline">
                                         {% if not payment_payfast_debug %}
                                             <input type="radio" name="payment_payfast_debug" value="0" checked="checked" />
-                                            {{ text_no }}
+                                            {{ button_disable }}
                                         {% else %}
                                             <input type="radio" name="payment_payfast_debug" value="0" />
-                                            {{ text_no }}
+                                            {{ button_disable }}
                                         {% endif %}
                                     </label>
                                 </div>

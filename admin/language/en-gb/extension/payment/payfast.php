@@ -35,7 +35,7 @@ $_['entry_canceled_status']          = 'Payment Cancelled Status:';
 $_['help_payfast_passphrase']        = 'Only insert a value for passphrase if you have set a passphrase in your Payfast account!';
 $_['help_payfast_merchant_id']       = 'Use Sandbox credentials when Sandbox Mode is set to Yes, else use your PayFast account credentials';
 $_['help_payfast_merchant_key']      = 'Use Sandbox credentials when Sandbox Mode is set to Yes, else use your PayFast account credentials';
-$_['help_payfast_debug']             = 'It is highly recommended to have this set';
+$_['help_payfast_debug']             = 'Enable this to turn debug logging on';
 
 // Tab
 $_['tab_general']					 = 'General';
