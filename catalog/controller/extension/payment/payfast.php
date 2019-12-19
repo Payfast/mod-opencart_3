@@ -57,7 +57,7 @@ class ControllerExtensionPaymentPayFast extends Controller
 
                     $cycles = $product['recurring']['duration'];
 
-                    $recurring_amount = $product['recurring']['price'];
+                    $recurring_amount = number_format( $product['recurring']['price'], 2, '.', '' );
 
                     $custom_str3 = $product['recurring']['recurring_id'];
 
